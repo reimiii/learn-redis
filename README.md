@@ -46,3 +46,27 @@ PERSIST mykey
 # Check if a key exists (1 if exists, 0 if not exists/expired)
 EXISTS mykey
 
+## increment and decrement
+# Set an initial value
+SET mycounter 10
+
+# Increment the value by 1
+INCR mycounter
+# Output: (integer) 11
+
+# Increment the value by 5
+INCRBY mycounter 5
+# Output: (integer) 16
+
+# Increment the float value by 2.5
+INCRBYFLOAT mycounter 2.5
+# Output: "18.5"
+
+# Decrement the value by 1
+DECR mycounter
+# Output: "17.5"
+
+# Decrement the value by 3
+DECRBY mycounter 3
+# Output: "14.5"
+
