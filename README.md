@@ -70,3 +70,51 @@ DECR mycounter
 DECRBY mycounter 3
 # Output: "14.5"
 
+## flushdb
+# Set some keys in the default database (DB 0)
+SET key1 "value1"
+SET key2 "value2"
+# Output: OK
+
+# Flush the current database (DB 0)
+FLUSHDB
+# Output: OK
+
+# Check if the keys are deleted
+EXISTS key1
+# Output: (integer) 0
+EXISTS key2
+# Output: (integer) 0
+
+# Set some keys in the default database (DB 0) again
+SET key3 "value3"
+SET key4 "value4"
+# Output: OK
+
+# Switch to another database (DB 1)
+SELECT 1
+# Output: OK
+
+# Set some keys in DB 1
+SET key5 "value5"
+SET key6 "value6"
+# Output: OK
+
+# Flush all databases
+FLUSHALL
+# Output: OK
+
+# Check if the keys are deleted in DB 1
+EXISTS key5
+# Output: (integer) 0
+EXISTS key6
+# Output: (integer) 0
+
+# Switch back to DB 0 and check if the keys are deleted
+SELECT 0
+# Output: OK
+EXISTS key3
+# Output: (integer) 0
+EXISTS key4
+# Output: (integer) 0
+
