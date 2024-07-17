@@ -22,6 +22,7 @@ selecet some databae use `select 1`
 - mset key value key value
 
 ## expired key
+```
 # Set a key with a value and expiration time in one command
 SETEX mykey 10 "myvalue"
 
@@ -69,8 +70,9 @@ DECR mycounter
 # Decrement the value by 3
 DECRBY mycounter 3
 # Output: "14.5"
-
+```
 ## flushdb
+```
 # Set some keys in the default database (DB 0)
 SET key1 "value1"
 SET key2 "value2"
@@ -117,4 +119,4 @@ EXISTS key3
 # Output: (integer) 0
 EXISTS key4
 # Output: (integer) 0
-
+```
