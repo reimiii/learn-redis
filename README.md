@@ -120,3 +120,25 @@ EXISTS key3
 EXISTS key4
 # Output: (integer) 0
 ```
+
+## pipeline
+```
+# Start the Redis CLI
+docker exec -it redis-container redis-cli
+
+# Begin the pipeline
+MULTI
+
+# Add commands to the pipeline
+SET key1 "value1"
+SET key2 "value2"
+GET key1
+GET key2
+
+# Execute the pipeline
+EXEC
+
+
+# Start the Redis CLI
+docker exec -it redis-container redis-cli -n database-num --pipe < input.txt
+```
